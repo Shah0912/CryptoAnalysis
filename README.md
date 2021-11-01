@@ -1,0 +1,1 @@
+A simple ceaser cipher application, which can be used to encrypt a plain text, decrypt using either bruteforce or a key.
