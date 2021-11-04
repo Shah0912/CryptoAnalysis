@@ -44,9 +44,9 @@ const App: React.FC = () => (
           <Route exact path="/tab2">
             <Tab2 />
           </Route>
-          {/* <Route path="/tab3">
+          <Route path="/tab3">
             <Tab3 />
-          </Route> */}
+          </Route>
           <Route exact path="/">
             <Redirect to="/tab1" />
           </Route>
@@ -60,10 +60,10 @@ const App: React.FC = () => (
             <IonIcon icon={triangle} />
             <IonLabel>Frequency Analysis</IonLabel>
           </IonTabButton>
-          {/* <IonTabButton tab="tab3" href="/tab3">
-            <IonIcon icon={square} />
-            <IonLabel>Tab 3</IonLabel>
-          </IonTabButton> */}
+          <IonTabButton tab="tab3" href="/tab3">
+            <IonIcon icon={triangle} />
+            <IonLabel>About</IonLabel>
+          </IonTabButton>
         </IonTabBar>
       </IonTabs>
     </IonReactRouter>

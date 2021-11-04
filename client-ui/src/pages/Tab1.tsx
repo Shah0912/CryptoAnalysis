@@ -1,4 +1,4 @@
-import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from '@ionic/react';
+import { IonButton, IonContent, IonHeader, IonInput, IonItem, IonItemDivider, IonLabel, IonPage, IonTextarea, IonTitle, IonToolbar } from '@ionic/react';
 import ExploreContainer from '../components/ExploreContainer';
 import './Tab1.css';
 
@@ -16,7 +16,36 @@ const Tab1: React.FC = () => {
             <IonTitle size="large">Tab 1</IonTitle>
           </IonToolbar>
         </IonHeader>
-        <ExploreContainer name="Tab 1 page" />
+        <IonItemDivider>Encryption</IonItemDivider>
+        <IonItem>
+          <IonLabel position="stacked">Plaintext</IonLabel>
+          <IonTextarea></IonTextarea>
+        </IonItem>
+        <IonItem>
+          <IonLabel position="stacked">Key</IonLabel>
+          <IonInput></IonInput>
+        </IonItem>
+        <IonButton>Encrypt</IonButton>
+        <IonItem>
+          <IonLabel position="stacked">CipherText</IonLabel>
+          <IonTextarea readonly></IonTextarea>
+        </IonItem>
+        
+
+        <IonItemDivider>Decryption</IonItemDivider>
+        <IonItem>
+          <IonLabel position="stacked">Cipher Text</IonLabel>
+          <IonTextarea></IonTextarea>
+        </IonItem>
+        <IonItem>
+          <IonLabel position="stacked">Key</IonLabel>
+          <IonInput></IonInput>
+        </IonItem>
+        <IonButton>Decrypt</IonButton>
+        <IonItem>
+          <IonLabel position="stacked">Decrypted Text</IonLabel>
+          <IonTextarea readonly></IonTextarea>
+        </IonItem>
       </IonContent>
     </IonPage>
   );
