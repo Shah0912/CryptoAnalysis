@@ -19,7 +19,7 @@ const Tab1: React.FC = () => {
         <IonItemDivider>Encryption</IonItemDivider>
         <IonItem>
           <IonLabel position="stacked">Plaintext</IonLabel>
-          <IonTextarea></IonTextarea>
+          <IonTextarea autoGrow={true}></IonTextarea>
         </IonItem>
         <IonItem>
           <IonLabel position="stacked">Key</IonLabel>
@@ -28,7 +28,7 @@ const Tab1: React.FC = () => {
         <IonButton>Encrypt</IonButton>
         <IonItem>
           <IonLabel position="stacked">CipherText</IonLabel>
-          <IonTextarea readonly></IonTextarea>
+          <IonTextarea autoGrow={true} readonly></IonTextarea>
         </IonItem>
         
 

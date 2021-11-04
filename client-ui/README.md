@@ -6,3 +6,5 @@ Your Ionic app is ready! Follow these next steps:
 - Generate your app icon and splash screens using cordova-res --skip-config --copy
 - Explore the Ionic docs for components, tutorials, and more: https://ion.link/docs
 - Building an enterprise app? Ionic has Enterprise Support and Features: https://ion.link/enterprise-edition
+
+https://ionicframework.com/docs/api/progress-bar

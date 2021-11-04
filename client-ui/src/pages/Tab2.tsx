@@ -18,7 +18,7 @@ const Tab2: React.FC = () => {
         </IonHeader>
         <IonItem>
           <IonLabel position="stacked">Cipher Text</IonLabel>
-          <IonTextarea></IonTextarea>
+          <IonTextarea autoGrow={true}></IonTextarea>
         </IonItem>
         <IonButton>Analyze</IonButton>
       </IonContent>
