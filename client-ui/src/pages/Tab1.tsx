@@ -20,11 +20,9 @@ const Tab1: React.FC = () => {
   async function handleEncryption() {
     try {
       // setEncryptedText('Handle function works');
-      (async()=>{
         const response = await axios.get(SERVER_ROUTES_URI + "encrypt", {params: {'plaintext': plainText, 'key': encryptionKey}});
         console.log(response);
-      });
-
+        setEncryptedText(response.data);
     } catch (error) {
       console.log(error);
     }
@@ -33,10 +31,9 @@ const Tab1: React.FC = () => {
   async function handleDecryption() {
     try {
       // setDecryptedText('Handle function ...');
-      (async()=>{
         const response = await axios.get(SERVER_ROUTES_URI + "decrypt", {params: {'ciphertext': cipherText, 'key': decryptionKey}});
         console.log(response);
-      });
+        setDecryptedText(response.data);
     } catch (error) {
       console.log(error);
     }
