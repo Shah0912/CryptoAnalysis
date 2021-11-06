@@ -1,1 +1,1 @@
-export const SERVER_ROUTES_URI = "http://localhost:8000"
+export const SERVER_ROUTES_URI = "http://localhost:5000/"
