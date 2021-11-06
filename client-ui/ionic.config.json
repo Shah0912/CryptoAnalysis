@@ -1,7 +1,0 @@
-{
-  "name": "client-ui",
-  "integrations": {
-    "capacitor": {}
-  },
-  "type": "react"
-}
