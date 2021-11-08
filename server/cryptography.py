@@ -1,3 +1,5 @@
+import pycld2 as cld2
+
 def encrypt(plain_text,key):
   plain_text = plain_text.upper()
   op=''
@@ -47,4 +49,15 @@ def decrypt_freq(cipher_text,ub):
     plain_texts.append(decrypt(cipher_text,key))
   return plain_texts
 
+def bruteForce(cipherText, giveAll=False):
+  obj = {}
+  for i in range(0, 26):
+    text_content = decrypt(cipherText, i)
+    isReliable, textBytesFound, details = cld2.detect(text_content)
+    if giveAll==False:
+      if(details[0][1] == 'en'):
+        obj[i] = (text_content, details[0][1], details[0][2])
+    else:
+      obj[i] = (text_content, details[0][1], details[0][2])
+  return obj
 
