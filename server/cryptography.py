@@ -23,31 +23,44 @@ def decrypt(cipher_text,key):
       op += ' '
   return op
 
-def decrypt_freq(cipher_text,ub):
 
-  cipher_text = cipher_text.upper()
-
+def get_letter_freq(text):
   letters=' ABCDEFGHIJKLMNOPQRSTUVWXYZ'
   letter_frequency = {}
   
   for letter in letters:
     letter_frequency[letter] = 0
 
-  for letter in cipher_text:
+  for letter in text:
     if letter in letters:
       letter_frequency[letter] += 1
-  
+  return letter_frequency
+
+
+def sort_letter_freq(letter_frequency):
   sorted_letter_freq = [k for k,v in sorted(letter_frequency.items(), key=lambda item: item[1],reverse=True)]
+  return sorted_letter_freq
+
+
+def decrypt_freq(cipher_text,ub):
+
+  cipher_text = cipher_text.upper()
+
+  letter_frequency = get_letter_freq(cipher_text)
   
-  plain_texts = []
+  sorted_letter_freq = sort_letter_freq(letter_frequency)
+  
+  # plain_texts = []
+  plaintexts = {}
   idx=0
   if sorted_letter_freq[0] == ' ':
     idx=1
   for i in range(ub):
     key = (ord(sorted_letter_freq[idx])-ord('E'))
     idx +=1
-    plain_texts.append(decrypt(cipher_text,key))
-  return plain_texts
+    plaintexts[key] = {"key": key, "plaintext": decrypt(cipher_text, key)}
+    # plain_texts.append(decrypt(cipher_text,key))
+  return plaintexts
 
 def bruteForce(cipherText, giveAll=False):
   obj = {}
@@ -56,8 +69,10 @@ def bruteForce(cipherText, giveAll=False):
     isReliable, textBytesFound, details = cld2.detect(text_content)
     if giveAll==False:
       if(details[0][1] == 'en'):
-        obj[i] = (text_content, details[0][1], details[0][2])
+        obj[i] = {"key": i ,"plaintext": text_content, "language": details[0][1], "confidence": details[0][2]}
     else:
-      obj[i] = (text_content, details[0][1], details[0][2])
+      obj[i] = {"key": i , "plaintext": text_content, "language": details[0][1], "confidence": details[0][2]}
+  
+  
   return obj
 

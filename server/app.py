@@ -1,7 +1,7 @@
 from flask import Flask, request
 from flask_cors import CORS, cross_origin
 
-from cryptography import encrypt, decrypt, bruteForce
+from cryptography import encrypt, decrypt, bruteForce, decrypt_freq
 
 
 app = Flask(__name__)
@@ -39,10 +39,24 @@ def bruteForceHandler():
     assert request.method == 'GET', '/bruteforce should only have GET method'
     assert request.args['ciphertext'] is not None, "Cipher text should be provided"
     assert request.args['giveAll'] is not None, 'giveAll flag should be provided'
+
+    # print("giveAll = ", request.args['giveAll'])
+    # print("type = ", type(request.args['giveAll']))
     
-    obj = bruteForce(request.args['ciphertext'], giveAll=request.args['giveAll'] == "True") 
+    obj = bruteForce(request.args['ciphertext'], giveAll=request.args['giveAll'] == "true") 
+    print("obj = ", obj)
+    return obj
+
+@app.route('/frequency_analysis', methods=(['GET']))
+@cross_origin()
+def frequencyAnalysisHandler():
+    assert request.method == 'GET', '/bruteforce should only have GET method'
+    assert request.args['ciphertext'] is not None, "Cipher text should be provided"
+
+    obj = decrypt_freq(request.args['ciphertext'])
 
     return obj
 
 if __name__ == "__main__":
     app.run(debug=True)
+    

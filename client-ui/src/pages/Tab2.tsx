@@ -1,8 +1,13 @@
 import { IonButton, IonContent, IonHeader, IonInput, IonItem, IonLabel, IonPage, IonTextarea, IonTitle, IonToolbar } from '@ionic/react';
 import ExploreContainer from '../components/ExploreContainer';
 import './Tab2.css';
+import { useState } from 'react';
 
 const Tab2: React.FC = () => {
+
+  const [cipherText, setCipherText] = useState("");
+  const [decrpytedText, setDecryptedText] = useState("");
+
   return (
     <IonPage>
       <IonHeader>
@@ -13,12 +18,12 @@ const Tab2: React.FC = () => {
       <IonContent fullscreen>
         <IonHeader collapse="condense">
           <IonToolbar>
-            <IonTitle size="large">Tab 2</IonTitle>
+            <IonTitle size="large">Frequency Analysis</IonTitle>
           </IonToolbar>
         </IonHeader>
         <IonItem>
           <IonLabel position="stacked">Cipher Text</IonLabel>
-          <IonTextarea autoGrow={true}></IonTextarea>
+          <IonTextarea autoGrow={true} value={cipherText} onIonChange={e=>setCipherText(e.detail.value!)}></IonTextarea>
         </IonItem>
         <IonButton>Analyze</IonButton>
       </IonContent>

@@ -62,7 +62,7 @@ const App: React.FC = () => (
           </IonTabButton>
           <IonTabButton tab="tab3" href="/tab3">
             <IonIcon icon={triangle} />
-            <IonLabel>About</IonLabel>
+            <IonLabel>Brute Force</IonLabel>
           </IonTabButton>
         </IonTabBar>
       </IonTabs>
