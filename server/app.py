@@ -52,8 +52,9 @@ def bruteForceHandler():
 def frequencyAnalysisHandler():
     assert request.method == 'GET', '/bruteforce should only have GET method'
     assert request.args['ciphertext'] is not None, "Cipher text should be provided"
-
-    obj = decrypt_freq(request.args['ciphertext'])
+    assert request.args['numResults'] is not None, "number of results required should be provided"
+    
+    obj = decrypt_freq(request.args['ciphertext'], int(request.args['numResults']))
 
     return obj
 

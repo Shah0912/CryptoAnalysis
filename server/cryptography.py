@@ -42,7 +42,7 @@ def sort_letter_freq(letter_frequency):
   return sorted_letter_freq
 
 
-def decrypt_freq(cipher_text,ub):
+def decrypt_freq(cipher_text,ub=1):
 
   cipher_text = cipher_text.upper()
 
@@ -52,13 +52,15 @@ def decrypt_freq(cipher_text,ub):
   
   # plain_texts = []
   plaintexts = {}
+  order = 1
   idx=0
   if sorted_letter_freq[0] == ' ':
     idx=1
   for i in range(ub):
     key = (ord(sorted_letter_freq[idx])-ord('E'))
     idx +=1
-    plaintexts[key] = {"key": key, "plaintext": decrypt(cipher_text, key)}
+    plaintexts[key] = {"key": key, "order": order, "plaintext": decrypt(cipher_text, key)}
+    order += 1
     # plain_texts.append(decrypt(cipher_text,key))
   return plaintexts
 
