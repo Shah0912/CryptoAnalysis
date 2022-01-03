@@ -34,6 +34,7 @@ const Tab3: React.FC = () => {
 
       console.log("values = ", Object.values(response.data))
       setSolution(Object.values(response.data));
+      // solution.sort((a, b) => a.confidence > b.confidence ? 1 : a.confidence < b.confidence ? -1 : 0);
       // setSolution(response.data)
       console.log("solution = ", solution);
     }
@@ -68,7 +69,8 @@ const Tab3: React.FC = () => {
         <IonList>
           <IonListHeader>Possible Solutions</IonListHeader>
           {
-            solution.map((x: cipherTextObject) => {
+            
+            solution.sort((a, b)=>a.confidence > b.confidence ? -1: 1).map((x: cipherTextObject) => {
               return (
                 <IonLabel>
                   <p>{x.key}: {x.plaintext} {x.confidence} {x.language}</p>

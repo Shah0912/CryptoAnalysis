@@ -55,7 +55,7 @@ const Tab2: React.FC = () => {
         <IonList>
           <IonListHeader>Possible Solutions</IonListHeader>
           {
-            solution.map((x: cipherTextObject) => {
+            solution.sort((a, b)=>a.order < b.order ? -1: 1).map((x: cipherTextObject) => {
               return (
                 <IonLabel>
                   <p>{x.key}: {x.plaintext}</p>
